@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container">
+  <form [formGroup]="addData" (ngSubmit)="onSubmit()">
+    <div class="mb-2 mt-2">
+      <label for="fname">First Name</label>
+      <input
+        id="fname"
+        formControlName="fname"
+        type="text"
+        class="form-control"
+        placeholder="Enter First Name"
+      >
+      <div *ngIf="addData.controls['fname'].touched && addData.controls['fname'].invalid" class="text-danger">
+        First Name is required.
+      </div>
+      <br>
+
+      <label for="lname">Last Name</label>
+      <input
+        id="lname"
+        formControlName="lname"
+        type="text"
+        class="form-control"
+        placeholder="Enter Last Name"
+      >
+      <div *ngIf="addData.controls['lname'].touched && addData.controls['lname'].invalid" class="text-danger">
+        Last Name is required.
+      </div>
+      <br>
+
+      <label for="gender">Gender</label><br>
+      <div>
+        <input
+          type="radio"
+          formControlName="gender"
+          value="Male"
+        > Male
+        <input
+          type="radio"
+          formControlName="gender"
+          value="Female"
+        > Female
+        <input
+          type="radio"
+          formControlName="gender"
+          value="Other"
+        > Other
+      </div>
+      <div *ngIf="addData.controls['gender'].touched && addData.controls['gender'].invalid" class="text-danger">
+        Gender is required.
+      </div>
+      <br>
+
+      <label for="salary">Salary</label>
+      <input
+        id="salary"
+        formControlName="salary"
+        type="number"
+        class="form-control"
+        placeholder="Enter Salary"
+      >
+      <div *ngIf="addData.controls['salary'].touched && addData.controls['salary'].invalid" class="text-danger">
+        Salary must be a positive number.
+      </div>
+      <br>
+
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="addData.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+{
+  "students": [
+    {
+      "id": "2138",
+      "fname": "Harshwardhan ",
+      "lname": "Rajapure",
+      "gender": "Male",
+      "salary": 5430000
+    },
+    {
+      "id": "65f7",
+      "fname": "Jay",
+      "lname": "Powar",
+      "gender": "Male",
+      "salary": 65000
+    },
+    {
+      "id": "1816",
+      "fname": "Pradnya",
+      "lname": "Deshpande",
+      "gender": "Female",
+      "salary": 65000
+    },
+    {
+      "id": "fe64",
+      "fname": "Ranjit",
+      "lname": "Pawar",
+      "gender": "Male",
+      "salary": 98500
+    },
+    {
+      "id": "e137",
+      "fname": "Avi",
+      "lname": "Jadhav",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "4dfb",
+      "fname": "Ashish",
+      "lname": "Khade",
+      "gender": "Male",
+      "salary": 45000
+    },
+    {
+      "id": "be64",
+      "fname": "Inaya",
+      "lname": "Deshmukh",
+      "gender": "Female",
+      "salary": 45000
+    },
+    {
+      "id": "6c67",
+      "fname": "Aishwarya",
+      "lname": "Patil",
+      "gender": "Female",
+      "salary": 52000
+    }
+  ]
+}

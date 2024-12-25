@@ -1,0 +1,23 @@
+.addstudentform {
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 50px 0;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.genderclass{
+    display: flex;
+    flex-direction: column;
+}
+
+.addstudentform {
+    list-style-type: none; /* This removes the default numbering */
+    padding-left: 0; /* Optional: Remove the left padding */
+  }
+  
