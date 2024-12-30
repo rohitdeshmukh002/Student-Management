@@ -1,0 +1,35 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: #3498db;
+  border-radius: 5px;
+  opacity: 0; /* Initially hidden for animation */
+}
+
+.dummy-content {
+  height: 100vh; /* Fill the screen height to force scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  color: #555;
+}

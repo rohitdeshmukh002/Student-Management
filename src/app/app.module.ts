@@ -37,6 +37,8 @@ import { AddDeveloperDialogComponent } from './add-developer-dialog/add-develope
 import { MatChipsModule } from '@angular/material/chips'; // Add this import
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
+import { GsapExample1Component } from './gsap-example-1/gsap-example-1.component';
+import { GsapExample2Component } from './gsap-example-2/gsap-example-2.component';
 
 
 
@@ -56,7 +58,9 @@ import { AddProjectDialogComponent } from './add-project-dialog/add-project-dial
     ProjectsComponent,
     SidebarComponent,
     AddDeveloperDialogComponent,
-    AddProjectDialogComponent
+    AddProjectDialogComponent,
+    GsapExample1Component,
+    GsapExample2Component
   ],
   imports: [
     BrowserModule,

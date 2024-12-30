@@ -4,7 +4,7 @@
   display: flex; /* Flexbox layout for main container */
   /* margin-left: 150px; Reserve space for the fixed sidebar */
   height: 100vh; /* Full height of the viewport */
-  overflow: hidden; /* Prevent overflow */
+  overflow: hidden; 
   /* width: 100%; */
 }
 
@@ -70,4 +70,8 @@
   height: 100vh; /* Ensure it covers the full viewport height */
   padding: 20px; /* Optional padding for the content */
   box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.content {
+  margin-left: 150px;
 }

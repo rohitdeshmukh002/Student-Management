@@ -6,6 +6,8 @@ import { HeroComponent } from './hero/hero.component';
 import { DevelopersComponent } from './developers/developers.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { EmployeeManagementComponent } from './employee-management/employee-management.component';
+import { GsapExample1Component } from './gsap-example-1/gsap-example-1.component';
+import { GsapExample2Component } from './gsap-example-2/gsap-example-2.component';
 
 const routes: Routes = [
   // {
@@ -25,6 +27,12 @@ const routes: Routes = [
   },
   {
     path: 'technologies', component: EmployeeManagementComponent
+  },
+  {
+    path: 'gsap1', component: GsapExample1Component
+  },
+  {
+    path: 'gsap2', component: GsapExample2Component
   }
 ];
 
