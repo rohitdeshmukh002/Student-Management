@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="sidebar">
+    <ul>
+      <li routerLink="technologies" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="icon-tech"></i> Technologies
+      </li>
+      <li routerLink="developers" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="icon-dev"></i> Developers
+      </li>
+      <li routerLink="projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="icon-projects"></i> Projects
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <!-- Router outlet to display the table content -->
+    <router-outlet></router-outlet>
+  </div>
+</div>

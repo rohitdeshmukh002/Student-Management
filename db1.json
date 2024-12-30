@@ -1,60 +1,396 @@
 {
   "students": [
     {
-      "id": "2138",
-      "fname": "Harshwardhan ",
+      "id": "1",
+      "fname": "Harshwardhan",
       "lname": "Rajapure",
       "gender": "Male",
-      "salary": 5430000
+      "salary": 50000
     },
     {
-      "id": "65f7",
+      "id": "2",
       "fname": "Jay",
       "lname": "Powar",
       "gender": "Male",
       "salary": 65000
     },
     {
-      "id": "1816",
-      "fname": "Pradnya",
-      "lname": "Deshpande",
-      "gender": "Female",
-      "salary": 65000
-    },
-    {
-      "id": "fe64",
+      "id": "4",
       "fname": "Ranjit",
       "lname": "Pawar",
       "gender": "Male",
       "salary": 98500
     },
     {
-      "id": "e137",
+      "id": "5",
       "fname": "Avi",
       "lname": "Jadhav",
       "gender": "Male",
       "salary": 54000
     },
     {
-      "id": "4dfb",
+      "id": "6",
       "fname": "Ashish",
       "lname": "Khade",
       "gender": "Male",
       "salary": 45000
     },
     {
-      "id": "be64",
+      "id": "7",
       "fname": "Inaya",
       "lname": "Deshmukh",
       "gender": "Female",
       "salary": 45000
     },
     {
-      "id": "6c67",
+      "id": "8",
       "fname": "Aishwarya",
       "lname": "Patil",
       "gender": "Female",
       "salary": 52000
+    },
+    {
+      "id": "9",
+      "fname": "Rahul",
+      "lname": "Shinde",
+      "gender": "Male",
+      "salary": 67000
+    },
+    {
+      "id": "10",
+      "fname": "Maya",
+      "lname": "Gore",
+      "gender": "Female",
+      "salary": 76000
+    },
+    {
+      "id": "11",
+      "fname": "Vikram",
+      "lname": "Verma",
+      "gender": "Male",
+      "salary": 80000
+    },
+    {
+      "id": "12",
+      "fname": "Sonali",
+      "lname": "Patil",
+      "gender": "Female",
+      "salary": 85000
+    },
+    {
+      "id": "13",
+      "fname": "Nikhil",
+      "lname": "Thakur",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "14",
+      "fname": "Suman",
+      "lname": "Kumar",
+      "gender": "Female",
+      "salary": 90000
+    },
+    {
+      "id": "15",
+      "fname": "Anil",
+      "lname": "Tiwari",
+      "gender": "Male",
+      "salary": 72000
+    },
+    {
+      "id": "16",
+      "fname": "Neha",
+      "lname": "Sharma",
+      "gender": "Female",
+      "salary": 65000
+    },
+    {
+      "id": "17",
+      "fname": "Kiran",
+      "lname": "Jadhav",
+      "gender": "Male",
+      "salary": 45000
+    },
+    {
+      "id": "18",
+      "fname": "Pooja",
+      "lname": "Bansal",
+      "gender": "Female",
+      "salary": 40000
+    },
+    {
+      "id": "19",
+      "fname": "Rajesh",
+      "lname": "Rai",
+      "gender": "Male",
+      "salary": 92000
+    },
+    {
+      "id": "20",
+      "fname": "Priya",
+      "lname": "Mehta",
+      "gender": "Female",
+      "salary": 88000
+    },
+    {
+      "id": "21",
+      "fname": "Vinay",
+      "lname": "Patel",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "22",
+      "fname": "Ritika",
+      "lname": "Singh",
+      "gender": "Female",
+      "salary": 100000
+    },
+    {
+      "id": "23",
+      "fname": "Shivendra",
+      "lname": "Yadav",
+      "gender": "Male",
+      "salary": 65000
+    },
+    {
+      "id": "24",
+      "fname": "Aarti",
+      "lname": "Singh",
+      "gender": "Female",
+      "salary": 73000
+    },
+    {
+      "id": "25",
+      "fname": "Aditya",
+      "lname": "Rathore",
+      "gender": "Male",
+      "salary": 82000
+    },
+    {
+      "id": "26",
+      "fname": "Pallavi",
+      "lname": "Patel",
+      "gender": "Female",
+      "salary": 75000
+    },
+    {
+      "id": "27",
+      "fname": "Ishaan",
+      "lname": "Chauhan",
+      "gender": "Male",
+      "salary": 60000
+    },
+    {
+      "id": "28",
+      "fname": "Meena",
+      "lname": "Gupte",
+      "gender": "Female",
+      "salary": 95000
+    },
+    {
+      "id": "29",
+      "fname": "Raghav",
+      "lname": "Joshi",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "30",
+      "fname": "Sheetal",
+      "lname": "Sharma",
+      "gender": "Female",
+      "salary": 60000
+    },
+    {
+      "id": "31",
+      "fname": "Manoj",
+      "lname": "Kumar",
+      "gender": "Male",
+      "salary": 67000
+    },
+    {
+      "id": "32",
+      "fname": "Swati",
+      "lname": "Patel",
+      "gender": "Female",
+      "salary": 56000
+    },
+    {
+      "id": "33",
+      "fname": "Ashok",
+      "lname": "Mehra",
+      "gender": "Male",
+      "salary": 88000
+    },
+    {
+      "id": "34",
+      "fname": "Shweta",
+      "lname": "Joshi",
+      "gender": "Female",
+      "salary": 70000
+    },
+    {
+      "id": "35",
+      "fname": "Sandeep",
+      "lname": "Sahu",
+      "gender": "Male",
+      "salary": 53000
+    },
+    {
+      "id": "36",
+      "fname": "Geeta",
+      "lname": "Gupta",
+      "gender": "Female",
+      "salary": 76000
+    },
+    {
+      "id": "37",
+      "fname": "Akash",
+      "lname": "Singh",
+      "gender": "Male",
+      "salary": 91000
+    },
+    {
+      "id": "38",
+      "fname": "Divya",
+      "lname": "Mehta",
+      "gender": "Female",
+      "salary": 65000
+    },
+    {
+      "id": "39",
+      "fname": "Sushant",
+      "lname": "Patel",
+      "gender": "Male",
+      "salary": 78000
+    },
+    {
+      "id": "40",
+      "fname": "Ayesha",
+      "lname": "Siddiqui",
+      "gender": "Female",
+      "salary": 68000
+    },
+    {
+      "id": "41",
+      "fname": "Nikita",
+      "lname": "Bajpai",
+      "gender": "Female",
+      "salary": 59000
+    },
+    {
+      "id": "42",
+      "fname": "Gaurav",
+      "lname": "Sharma",
+      "gender": "Male",
+      "salary": 80000
+    },
+    {
+      "id": "43",
+      "fname": "Anjali",
+      "lname": "Kumari",
+      "gender": "Female",
+      "salary": 74000
+    },
+    {
+      "id": "44",
+      "fname": "Pratik",
+      "lname": "Patel",
+      "gender": "Male",
+      "salary": 82000
+    },
+    {
+      "id": "45",
+      "fname": "Madhuri",
+      "lname": "Sharma",
+      "gender": "Female",
+      "salary": 92000
+    },
+    {
+      "id": "46",
+      "fname": "Kunal",
+      "lname": "Singh",
+      "gender": "Male",
+      "salary": 66000
+    },
+    {
+      "id": "47",
+      "fname": "Vandana",
+      "lname": "Thakur",
+      "gender": "Female",
+      "salary": 83000
+    },
+    {
+      "id": "48",
+      "fname": "Jatin",
+      "lname": "Yadav",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "49",
+      "fname": "Kavita",
+      "lname": "Verma",
+      "gender": "Female",
+      "salary": 75000
+    },
+    {
+      "id": "50",
+      "fname": "Ashwin",
+      "lname": "Rai",
+      "gender": "Male",
+      "salary": 65000
+    },
+    {
+      "id": "51",
+      "fname": "Aarti",
+      "lname": "Yadav",
+      "gender": "Female",
+      "salary": 87000
+    },
+    {
+      "id": "2346",
+      "fname": "Vaishali",
+      "lname": "Mali",
+      "gender": "Female",
+      "salary": 45000
+    },
+    {
+      "id": "f172",
+      "fname": "Jay",
+      "lname": "Patil",
+      "gender": "Male",
+      "salary": 68500
+    },
+    {
+      "id": "2adb",
+      "fname": "Pruthvi",
+      "lname": "Gharal",
+      "gender": "Male",
+      "salary": 54000
+    },
+    {
+      "id": "dc57",
+      "fname": "Shiv",
+      "lname": "Ekshinge",
+      "gender": "Male",
+      "salary": 96000
+    },
+    {
+      "id": "ffbd",
+      "fname": "Nikhil",
+      "lname": "Patil",
+      "gender": "Male",
+      "salary": 56000
+    },
+    {
+      "id": "dbf9",
+      "fname": "Pradnya",
+      "lname": "Patil",
+      "gender": "Female",
+      "salary": 45000
     }
   ]
 }

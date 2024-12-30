@@ -1,0 +1,94 @@
+/* Dialog content and form styling */
+.addstudentform {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.addstudentform li {
+  margin-bottom: 15px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Dialog Header Styling */
+.dialog-header {
+  background-color: #0288d1; /* Change to a professional blue color */
+  color: #fff; /* White text color for contrast */
+  text-align: center;
+  font-size: 1rem; /* Slightly larger font size */
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+/* Header text styling */
+.dialog-header-text {
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Slightly smaller letter spacing */
+}
+
+/* Dialog Footer Styling */
+.dialog-footer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 15px 30px;
+  background-color: #f1f1f1;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Cancel Button Styling */
+.cancel-btn {
+  color: #757575;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: capitalize; /* Proper capitalization */
+  padding: 10px 20px;
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+  color: white;
+  background-color: #0288d1; /* Consistent blue with header */
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Submit Button Hover Effect */
+.submit-btn:hover {
+  background-color: #0277bd; /* Slightly darker blue on hover */
+}
+
+/* Styling for form field inputs and error messages */
+mat-form-field .mat-form-field-infix {
+  padding: 10px;
+}
+
+mat-error {
+  font-size: 0.85rem;
+  color: #f44336; /* Red color for error messages */
+}
+
+/* Add a smooth transition effect for the form fields */
+mat-form-field input, mat-select {
+  transition: all 0.3s ease;
+}
+
+mat-form-field:hover input, mat-select:hover {
+  border-color: #0288d1; /* Highlight border on hover */
+}

@@ -1,56 +1,81 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StudentService } from '../student.service';
+import { Student } from '../student.service'; // Ensure you import the Student interface/type
+
 
 @Component({
   selector: 'app-addstudent-dialog',
   templateUrl: './addstudent-dialog.component.html',
-  styleUrls: ['./addstudent-dialog.component.css']
+  styleUrls: ['./addstudent-dialog.component.css'],
 })
-export class AddStudentDialogComponent {
-  
+export class AddStudentDialogComponent implements OnInit {
   fname: string = '';
   lname: string = '';
   gender: string = '';
-  salary: number | null = null;
+  salary!: number; // Default to 0 to avoid `null`
+  _id?: string; // Include ID for editing
+  isUpdate: boolean = false;
 
-  constructor(
+  constructor(private studentService: StudentService,
     public dialogRef: MatDialogRef<AddStudentDialogComponent>,
-    private studentService: StudentService,
-    private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: any // Inject data for edit mode
+    
   ) {}
 
-  // Method to handle form submission
-  onSubmit(): void {
-    if (this.fname && this.lname && this.gender && this.salary && this.salary > 0) {
-      const newStudent = {
-        fname: this.fname,
-        lname: this.lname,
-        gender: this.gender,
-        salary: this.salary,
-      };
+  ngOnInit(): void {
+    // Populate form fields if data is passed (edit mode)
+    if (this.data && this.data.student) {
+      const { _id, fname, lname, gender, salary } = this.data.student;
+      this._id = _id;
+      this.fname = fname;
+      this.lname = lname;
+      this.gender = gender;
+      this.salary = salary || 0; // Ensure salary is a number
+      this.isUpdate = true; 
+    }
+  }
 
-      // Use student service to add the student
-      this.studentService.addStudent(newStudent).subscribe(
+  onSubmit(): void {
+    const student: Student = {
+      _id: this._id, // For new students, `id` can be `undefined`
+      fname: this.fname,
+      lname: this.lname,
+      gender: this.gender,
+      salary: this.salary, // Ensure salary is always a number
+    };
+
+    if (this.isUpdate && this._id) {
+      // Update existing student
+      this.studentService.updateStudent(student).subscribe(
         (response) => {
-          this.router.navigate(['']);  // Navigate back to the student list
+          console.log('Student updated successfully:', response);
+          // location.reload();
+          this.dialogRef.close('updated');
+        },
+        (error) => {
+          console.error('Error updating student:', error);
+        }
+      );
+    } else {
+      
+      // Add new student
+      this.studentService.addStudent(student).subscribe(
+        (response) => {
           console.log('Student added successfully:', response);
-          this.dialogRef.close('Success');
           location.reload();
+          this.dialogRef.close('added');
+          
+
         },
         (error) => {
           console.error('Error adding student:', error);
         }
       );
-    } else {
-      alert('Please fill out all fields correctly.');
     }
   }
 
-  // Close the dialog
   closeDialog(): void {
     this.dialogRef.close();
-
   }
 }

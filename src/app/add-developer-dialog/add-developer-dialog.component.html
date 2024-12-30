@@ -1,0 +1,31 @@
+<h2 mat-dialog-title class="dialog-header">
+ <span class="dialog-header-text"> {{ data.developer ? 'Update Developer' : 'Add Developer' }}</span>
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="developerForm" class="developer-form">
+    <mat-form-field appearance="outline" class="form-field" style="width: 320px;margin-top: 5px;">
+      <mat-label>Developer Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter Developer Name" />
+      <mat-error *ngIf="developerForm.get('name')?.invalid">
+        Developer name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Technologies</mat-label>
+      <mat-select formControlName="technologies" multiple>
+        <mat-option *ngFor="let tech of technologies" [value]="tech._id">
+          {{ tech.fname }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-footer">
+  <button mat-button mat-dialog-close class="cancel-btn">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="developerForm.invalid" (click)="saveDeveloper()" class="submit-btn">
+    {{ data.developer ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>

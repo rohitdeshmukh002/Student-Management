@@ -6,12 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
-import { AddStudentComponent } from './add-student/add-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddstuComponent } from './addstu/addstu.component';
 import { MatInputModule } from '@angular/material/input';
@@ -26,7 +24,19 @@ import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component'; 
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddStudentDialogComponent } from './addstudent-dialog/addstudent-dialog.component';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { EmployeeManagementComponent } from './employee-management/employee-management.component';
+import { AddTechnologiesDialogComponent } from './add-technologies-dialog/add-technologies-dialog.component';
+import { DevelopersComponent } from './developers/developers.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { AddDeveloperDialogComponent } from './add-developer-dialog/add-developer-dialog.component';
+import { MatChipsModule } from '@angular/material/chips'; // Add this import
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
 
 
 
@@ -34,14 +44,19 @@ import { AddStudentDialogComponent } from './addstudent-dialog/addstudent-dialog
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
-    AddStudentComponent,
     AddstuComponent,
     DialogComponent,
     HeroComponent,
     DialogUpdateComponent,
     DialogDeleteComponent,
-    AddStudentDialogComponent
+    AddStudentDialogComponent,
+    EmployeeManagementComponent,
+    AddTechnologiesDialogComponent,
+    DevelopersComponent,
+    ProjectsComponent,
+    SidebarComponent,
+    AddDeveloperDialogComponent,
+    AddProjectDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +74,13 @@ import { AddStudentDialogComponent } from './addstudent-dialog/addstudent-dialog
     MatRadioModule,
     MatDialogModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatChipsModule,
+    MatTooltipModule
     
   ],
   providers: [],

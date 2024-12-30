@@ -16,7 +16,7 @@ export class AddstuComponent implements OnInit {
   gender: string = '';
   salary: number | null = null;
   isEditing: boolean = false; // Flag to check if we're editing an existing student
-  studentId: number | null = null;
+  studentId: string | null = null;
 
   constructor(
     public dialog: MatDialog,
@@ -28,21 +28,23 @@ export class AddstuComponent implements OnInit {
   ngOnInit(): void {
     // Check if we have a student ID from the route
     const studentId = this.route.snapshot.paramMap.get('id');
-if (studentId) {
-  this.studentId = +studentId; // Convert to number
-  if (isNaN(this.studentId)) {
-    console.error('Invalid student ID:', studentId);
-    // Handle the case where the ID is invalid (perhaps redirect to a 404 page)
-    this.router.navigate(['/404']);
-  } else {
-    this.isEditing = true;
-    this.fetchStudentData(this.studentId); // Fetch the student data for editing
+    if (studentId) {
+      this.studentId = studentId; // Keep it as string
+      // Check if studentId is a valid number
+      const studentIdNumber = +this.studentId; // Convert to number
+      if (isNaN(studentIdNumber)) {
+        console.error('Invalid student ID:', this.studentId);
+        // Handle the case where the ID is invalid (perhaps redirect to a 404 page)
+        this.router.navigate(['/404']);
+      } else {
+        this.isEditing = true;
+        this.fetchStudentData(studentIdNumber.toString()); // Pass the number for fetching student data
+      }
+    }
   }
-}
+  
 
-  }
-
-  fetchStudentData(id: number): void {
+  fetchStudentData(id: string): void {
     this.studentService.getStudentById(id).subscribe(
       (student) => {
         this.fname = student.fname;

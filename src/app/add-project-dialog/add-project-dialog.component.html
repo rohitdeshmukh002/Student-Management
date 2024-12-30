@@ -1,0 +1,27 @@
+
+    <h2 mat-dialog-title class="dialog-header">
+   <span class="dialog-header-text"> {{ data?.project ? 'Update Project' : 'Add Project' }}</span>
+    </h2>
+    <mat-dialog-content>
+    <form class="developer-form">
+      <mat-form-field appearance="outline" class="form-field" style="width: 320px;margin-top: 5px;">
+        <mat-label>Project Name</mat-label>
+        <input matInput [(ngModel)]="project.projectName" name="projectName" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Developers</mat-label>
+        <mat-select [(ngModel)]="project.developers" name="developers" multiple required>
+          <mat-option *ngFor="let developer of developers" [value]="developer._id">
+            {{ developer.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-footer">
+    <button mat-button class="cancel-btn" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveProject()" class="submit-btn">Save</button>
+  </mat-dialog-actions>
+  

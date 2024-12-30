@@ -1,10 +1,13 @@
-<h2 mat-dialog-title>Add Student</h2>
+<h2 mat-dialog-title class="dialog-header">
+  <span class="dialog-header-text">{{ isUpdate ? 'Update Student' : 'Add Student' }}</span>
+</h2>
+
 <mat-dialog-content>
   <ul class="addstudentform">
     <!-- First Name Field -->
     <li>
       <mat-form-field appearance="outline" style="width: 320px;margin-top: 5px;">
-        <mat-label>Enter first name</mat-label>
+        <mat-label>First name</mat-label>
         <input matInput [(ngModel)]="fname" #fnameRef="ngModel" required />
         <mat-error *ngIf="fnameRef.invalid && fnameRef.touched">
           First name is required.
@@ -13,9 +16,9 @@
     </li>
 
     <!-- Last Name Field -->
-    <li>
+    <li style="margin-top: -20px;">
       <mat-form-field appearance="outline" style="width: 320px;">
-        <mat-label>Enter last name</mat-label>
+        <mat-label>Last name</mat-label>
         <input matInput [(ngModel)]="lname" #lnameRef="ngModel" required />
         <mat-error *ngIf="lnameRef.invalid && lnameRef.touched">
           Last name is required.
@@ -24,8 +27,8 @@
     </li>
 
     <!-- Gender Selection -->
-    <li>
-      <mat-label style="width: 320px; font-size:16px; ">Enter gender</mat-label>
+    <li style="margin-top: -25px;">
+      <mat-label style="width: 320px; font-size:16px;">Gender</mat-label>
       <div style="display: flex; flex-direction: column;">
         <mat-radio-group [(ngModel)]="gender" #genderRef="ngModel" required style="margin-left: 20px;">
           <mat-radio-button value="Male">Male</mat-radio-button>
@@ -38,33 +41,21 @@
     </li>
 
     <!-- Salary Field -->
-    <li>
+    <li style="margin-top: -15px;">
       <mat-form-field appearance="outline" style="width: 320px;">
-        <mat-label>Enter Salary</mat-label>
+        <mat-label>Salary</mat-label>
         <input matInput [(ngModel)]="salary" type="number" #salaryRef="ngModel" required min="1" />
         <mat-error *ngIf="salaryRef.invalid && salaryRef.touched">
           Salary is required and must be a positive number.
         </mat-error>
       </mat-form-field>
     </li>
-
-    <!-- Submit Button -->
-    <!-- <li>
-      <button
-        mat-raised-button
-        color="primary"
-        [disabled]="!fname || !lname || !gender || !salary || salary <= 0"
-        (click)="onSubmit()"
-      >
-        Submit
-      </button>
-    </li> -->
   </ul>
 </mat-dialog-content>
 
-<mat-dialog-actions style="display: flex; justify-content: center; margin-top: -30px;">
-  <button mat-raised-button color="primary" [disabled]="!fname || !lname || !gender || !salary || salary <= 0" (click)="onSubmit()">Submit</button>
-  <button mat-button (click)="closeDialog()">Cancel</button>
+<mat-dialog-actions class="dialog-footer">
+  <button mat-button class="cancel-btn" (click)="closeDialog()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!fname || !lname || !gender || !salary || salary <= 0" (click)="onSubmit()" class="submit-btn">Submit</button>
 </mat-dialog-actions>
 
 <!-- <mat-dialog-actions style="margin-top: -30px;">

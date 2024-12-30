@@ -16,8 +16,11 @@ import { AddStudentDialogComponent } from '../addstudent-dialog/addstudent-dialo
 })
 export class HeroComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fname', 'lname', 'gender', 'salary', 'actions'];
+  displayedColumns: string[] = ['srNo', 'fname', 'lname', 'gender', 'salary', 'actions'];
   dataSource = new MatTableDataSource<Student>([]); // Use MatTableDataSource
+
+  pageSize: number = 10;
+  pageIndex: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -50,35 +53,34 @@ export class HeroComponent implements OnInit {
     );
   }
 
+  onPageChange(event: any): void {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+  }
+
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase(); // Trim and convert to lowercase
   }
 
-  onUpdate(id: number): void {
-    this.router.navigate([`student/editstudent/${id}`]);
-    console.log('Update clicked for ID:', id);
-  }
-
-  onDelete(id: number): void {
+  onDelete(_id: string): void {
     const dialogRef = this.dialog.open(DialogDeleteComponent, {
       width: '300px',
-      data: { id }
+      data: { _id }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.deleteStudent(id);
+        this.deleteStudent(_id);
       } else {
         console.log('Deletion cancelled');
       }
     });
   }
 
-  deleteStudent(id: number): void {
-    this.studentService.deleteStudent(id).subscribe(
+  deleteStudent(_id: string): void {
+    this.studentService.deleteStudent(_id).subscribe(
       () => {
-        this.dataSource.data = this.dataSource.data.filter(student => student.id !== id); // Update the data source
+        this.dataSource.data = this.dataSource.data.filter(student => student._id !== _id); // Update the data source
         console.log('Student deleted successfully');
       },
       (error) => {
@@ -105,22 +107,25 @@ export class HeroComponent implements OnInit {
     });
   }
 
-  onEdit(id: number): void {
-    const dialogRef = this.dialog.open(DialogUpdateComponent, {
-      width: '300px',
-      data: { id }
-    });
+  onUpdate(_id: string): void {
+    const student = this.dataSource.data.find((s: any) => s._id === _id); // Find the student by ID
+    if (student) {
+      console.log('Student data passed to dialog:', student); // Check if student data is correct
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // Add logic to refresh or fetch updated data if needed
-        this.fetchStudents();
-      } else {
-        console.log('Edit cancelled');
-      }
-    });
+      const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+        width: '400px',
+        data: { student }, // Pass student data for editing
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'updated') {
+          location.reload();
+          this.fetchStudents(); // Refresh the student list
+        }
+      });
+    }
   }
-
+  
   fetchStudents(): void {
     this.studentService.getStudents().subscribe(
       (data: Student[]) => {
@@ -131,7 +136,6 @@ export class HeroComponent implements OnInit {
       }
     );
   }
-
   // -------------------------Dialog-----------------------
   openDialog(): void {
     const dialogRef = this.dialog.open(AddStudentDialogComponent, {
@@ -142,6 +146,7 @@ export class HeroComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log('Dialog result:', result); // Use the result if the dialog returns data
+      location.reload();
     });
   }
 }

@@ -1,0 +1,27 @@
+<h2 mat-dialog-title class="dialog-header">
+    <span class="dialog-header-text">{{ isUpdate ? 'Update Technology' : 'Add Technology' }}</span>
+  </h2>
+  
+  <mat-dialog-content>
+    <ul class="addstudentform">
+      <!-- First Name Field -->
+      <li>
+        <mat-form-field appearance="outline" style="width: 320px;margin-top: 5px;">
+          <mat-label>Technology name</mat-label>
+          <input matInput [(ngModel)]="fname" #fnameRef="ngModel" required />
+          <mat-error *ngIf="fnameRef.invalid && fnameRef.touched">
+            Technology is required.
+          </mat-error>
+        </mat-form-field>
+      </li>
+    </ul>
+  </mat-dialog-content>
+
+  
+<!-- <div style="margin: 0; padding:0; width:100%"> -->
+  <mat-dialog-actions class="dialog-footer">
+    <button mat-button class="cancel-btn" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!fname " (click)="onSubmit()" class="submit-btn">Submit</button>
+  </mat-dialog-actions>
+<!-- </div> -->
+  

@@ -3,41 +3,45 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface Student {
-  id?: number;
+  _id?: string;  // Keeping the ID as a 
   fname: string;
   lname: string;
   gender: string;
   salary: number;  
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  // private apiUrl = 'https://gist.githubusercontent.com/Harshwardhan-Rajapure/e42a01dbf44a4786d1086893e7c25410/raw/59952110ab0cb6987688d6d978f41844e88a5d5b/StudentData.txt';
 
-  private apiUrl = 'http://localhost:3000/students';
+    private apiurl1 = 'http://localhost:5038/api/student';
+
   constructor(private http: HttpClient) {}
 
-  // Method to fetch student data
+  // Fetch all students
   getStudents(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.apiUrl);
+    return this.http.get<Student[]>(this.apiurl1);
   }
 
-  getStudentById(id: number): Observable<Student> {
-    return this.http.get<Student>(`${this.apiUrl}/${id}`);
+  // Fetch a student by ID
+  getStudentById(_id: string): Observable<Student> {
+    return this.http.get<Student>(`${this.apiurl1}/${_id}`);
+  }
+  // Add a new student (returns the updated student list)
+  addStudent(student: Student): Observable<Student[]> {
+    return this.http.post<Student[]>(`${this.apiurl1}/AddStudent`, student);
   }
 
-  addStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.apiUrl, student);
+  updateStudent(student: Student): Observable<Student[]> {
+    console.log('Student ID:', student._id); // Log the ID to verify
+    return this.http.put<Student[]>(`${this.apiurl1}/UpdateStudent/${student._id}`, student);
   }
 
-  updateStudent(student: Student): Observable<Student> {
-    return this.http.put<Student>(`${this.apiUrl}/${student.id}`, student); // `id` can be `undefined` or `number`
-  }
-
-  deleteStudent(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  // Delete a student by ID (returns the updated student list)
+  deleteStudent(_id: string): Observable<Student[]> {
+    return this.http.delete<Student[]>(`${this.apiurl1}/${_id}`);
   }
 }

@@ -1,0 +1,97 @@
+.main-content {
+    margin-left: 120px;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 100px); /* Full viewport height minus space for header and paginator */
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+    
+  section {
+    display: table;
+  }
+
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+  }
+  /* ---------------table-------------- */
+
+  .mat-elevation-z8 {
+    margin: 20px auto; /* Center the table horizontally */
+    padding: 0; /* Remove any padding */
+    max-width: calc(100% - 100px); /* Leave 50px margin on each side */
+    width: auto; /* Allow the table to resize within the max width */
+    border-collapse: collapse; /* Ensure proper table alignment */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for better visibility */
+}
+
+table {
+    width: 100%; /* Table takes the full width of its container */
+    position: relative;
+  }
+
+.mat-paginator {
+  background-color: #ecf0f1;
+  background: transparent;
+  margin-top: 10px;
+}
+
+/* Ensure the table takes the full width and handles overflow correctly */
+table {
+  min-width: 500px; /* Make sure the table has enough space */
+  position: relative;
+  width: 100%;
+  overflow: visible !important; /* Ensure tooltip isn't cut off */
+}
+
+/* Custom tooltip styling to ensure visibility */
+.mat-tooltip {
+  z-index: 10000 !important; /* Ensure the tooltip appears on top */
+  position: absolute !important; /* Ensure tooltip is positioned correctly */
+  max-width: 300px; /* Optional, adjust max width of the tooltip */
+  background-color: #3f51b5; /* Custom background color */
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* Ensure table rows are visible above tooltips */
+.mat-row, .mat-header-row {
+  z-index: 1;
+}
+
+.mat-tooltip-trigger {
+  cursor: pointer; /* Make sure the tooltip trigger has a pointer */
+}

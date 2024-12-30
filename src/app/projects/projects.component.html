@@ -1,0 +1,88 @@
+<div class="main-content">
+    <div>
+      <div style="margin-left: 80%">
+        <h2>Projects</h2>
+        <button mat-fab aria-label="Add Project" (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+  
+      <div style="display: flex; justify-content: center; margin: 0 100px;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-striped table-hover">
+          <!-- Sr.No Column -->
+          <ng-container matColumnDef="srNo">
+            <th mat-header-cell *matHeaderCellDef style="padding-left: 30px;"> Sr.No </th>
+            <td mat-cell *matCellDef="let project; let i = index" style="padding-left: 30px;">
+              {{ (pageIndex * pageSize) + (i + 1) }}
+            </td>
+          </ng-container>
+  
+          <!-- Project Name Column -->
+          <ng-container matColumnDef="projectName">
+            <th mat-header-cell *matHeaderCellDef> Project Name </th>
+            <td mat-cell *matCellDef="let project"> {{ project.projectName }} </td>
+          </ng-container>
+  
+          <!-- Developers Column -->
+          <!-- <ng-container matColumnDef="developers">
+            <th mat-header-cell *matHeaderCellDef> Developers </th>
+            <td mat-cell *matCellDef="let project">
+              {{ getDeveloperNames(project.developers).join(', ') }}
+            </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="developers">
+            <th mat-header-cell *matHeaderCellDef> Developers </th>
+            <td mat-cell *matCellDef="let project">
+              <span *ngFor="let developer of getDeveloperNames(project.developers); let i = index">
+                <span
+                  matTooltip="{{ developer.technologies.join(', ') }}"
+                  matTooltipPosition="above"
+                  [matTooltipClass]="'custom-tooltip'">
+                  {{ developer.name }}
+                </span>
+                <span *ngIf="i < project.developers.length - 1">, </span>
+              </span>
+            </td>
+            
+            
+            <!-- <td mat-cell *matCellDef="let project">
+              <span matTooltip="Tooltip text here" matTooltipPosition="above">
+                Hover over me
+              </span>
+            </td> -->
+            
+          </ng-container> 
+          
+          
+  
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let project">
+              <div style="display: flex; gap: 10px;">
+                <button mat-raised-button color="primary" (click)="onUpdate(project._id)">
+                  <mat-icon style="margin-left: 5px;">edit</mat-icon>
+                </button>
+                <button mat-raised-button color="warn" (click)="onDelete(project._id)">
+                  <mat-icon style="margin-left: 5px;">delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+       <span class="mat-tooltip" matTooltip="Sample Tooltip">Hover over me </span>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+  <mat-paginator class="mat-paginator"
+    [length]="dataSource.data.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
